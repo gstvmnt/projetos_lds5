@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cinepy</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='header.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="unique-header">
+        <div class="unique-header-title">Cinepy - Filmes</div>
+        <div class="unique-header-buttons">
+            <a class="unique-btn unique-btn-primary" href="{{ url_for('index') }}">Menu Inicial</a>
+
+            {% if user_role == 'user' %}
+            <a class="unique-btn unique-btn-primary" href="{{ url_for('favoritos') }}">Favoritos</a>
+            {% endif %}
+
+            {% if user_role == 'admin' %}
+            <a class="unique-btn unique-btn-primary" href="{{ url_for('novo') }}">Novo Filme</a>
+            {% endif %}
+
+            <a class="unique-btn unique-btn-primary" href="{{ url_for('login') }}">Login</a>
+            <a class="unique-btn unique-btn-danger" href="{{ url_for('logout') }}">Logout</a>
+        </div>
+    </div>
+    <div class="container">
+        {% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+        <ul id="messages" class="list-unstyled">
+        {% for category, message in messages %}
+            <li class="alert {{ category }}">{{ message }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+
+        <div class="page-header">
+            <h1>{{ titulo }}</h1>
+        </div>
+
+        {% block conteudo %} {% endblock %}
+
+        <script type="text/javascript" src="{{ url_for('static', filename='jquery.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
+        <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var messages = document.querySelectorAll('#messages .alert');
+        messages.forEach(function(message) {
+            setTimeout(function() {
+                message.style.opacity = '0';
+                setTimeout(function() {
+                    message.style.display = 'none';
+                }, 500); // Tempo para o efeito de desvanecimento
+            }, 3000); // Tempo total antes de desaparecer
+        });
+    });
+</script>
+    </div>
+</body>
+</html>

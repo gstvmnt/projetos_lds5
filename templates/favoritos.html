@@ -1,0 +1,29 @@
+{% extends "template.html" %}
+
+{% block conteudo %}
+<body>
+    <h1 class="page-title-container">
+        <span class="page-title">Lista de Favoritos de {{ usuario.nome }}</span>
+        <a class="btn-sharefav" href="{{ url_for('compartilhar_favoritos', usuario_email=session['usuario_logado']) }}">Compartilhar lista de favoritos</a>
+    </h1>
+    <div class="card-container">
+        {% for filme in filmes_favoritos %}
+        <div class="card">
+            <a href="{{ url_for('filme_detalhes', id=filme.id, proxima='favoritos') }}" class="card-link">
+                <img src="{{ url_for('imagem', nome_arquivo='capa' + str(filme.id) + '.jpg') }}" alt="{{ filme.nome }}" class="card-image">
+                <div class="card-body">
+                    <h5 class="card-title">{{ filme.nome }}</h5>
+                    <p class="card-category">{{ filme.genero }}</p>
+                    <p class="card-console">{{ filme.data_lancamento }}</p>
+                </div>
+            </a>
+            {% if user_role == 'user' %}
+            <div class="card-actions">
+                <a href="{{ url_for('desfavoritar', filme_id=filme.id) }}" class="btn-edit">Remover dos Favoritos</a>
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</body>
+{% endblock %}

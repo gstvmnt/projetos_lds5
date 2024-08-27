@@ -1,0 +1,36 @@
+{% extends "template.html" %}
+
+{% block conteudo %}
+
+    <body>
+        <div class="card-container">
+            {% for filme in filmes %}
+            <div class="card">
+                <a href="{{ url_for('filme_detalhes', id=filme.id) }}" class="card-link">
+                    <img src="{{ url_for('imagem', nome_arquivo='capa' + str(filme.id) + '.jpg') }}" alt="{{ filme.nome }}" class="card-image">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ filme.nome }}</h5>
+                        <p class="card-category">{{ filme.genero }}</p>
+                        <p class="card-console">{{ filme.data_lancamento }}</p>
+                    </div>
+                </a>
+                {% if user_role == 'admin' %}
+                <div class="card-actions">
+                    <a href="{{ url_for('editar', id=filme.id) }}" class="btn-edit">Editar</a>
+                    <a href="{{ url_for('deletar', id=filme.id, nome=filme.nome) }}" class="btn-delete">Deletar</a>
+                </div>
+                {% endif %}
+                {% if user_role == 'user' %}
+                <div class="card-actions">
+                    <a href="{{ url_for('filme_detalhes', id=filme.id) }}" class="btn-edit">Detalhes</a>
+                    <a href="{{ url_for('favoritar', filme_id=filme.id) }}" class="btn-edit">Favoritar</a>
+                </div>
+                {% endif %}
+
+
+            </div>
+            {% endfor %}
+        </div>
+    </body>
+{% endblock %}
+

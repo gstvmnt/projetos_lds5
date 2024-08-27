@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ filme.nome }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='detalhes.css') }}">
+</head>
+<body>
+    <div class="background-full">
+        <div class="detail-container">
+            <img src="{{ url_for('imagem', nome_arquivo='capa' + str(filme.id) + '.jpg') }}" alt="{{ filme.nome }}" class="detail-image">
+            <div class="detail-info">
+                <h1 class="detail-title">{{ filme.nome }}</h1>
+                <p class="detail-category"><strong>Gênero:</strong> {{ filme.genero }}</p>
+                <p class="detail-console"><strong>Data de Lançamento:</strong> {{ filme.data_lancamento }}</p>
+                <p class="detail-console"><strong>Sinopse:</strong> {{ filme.sinopse }}</p>
+                <a href="{{ url_for(proxima) }}" class="btn-back">Voltar</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

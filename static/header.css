@@ -1,0 +1,62 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.unique-header {
+    background-color: #6a0dad; /* Cor roxa */
+    color: white; /* Cor das letras */
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between; /* Alinha o título e botões nas extremidades */
+    align-items: center;
+    font-size: 20px; /* Tamanho de fonte reduzido para um visual mais moderno */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+.unique-header-title {
+    margin: 0;
+    font-weight: 600; /* Fonte em negrito para destaque */
+}
+
+.unique-header-buttons {
+    display: flex;
+    gap: 20px; /* Espaçamento entre os botões */
+}
+
+.unique-btn {
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.unique-btn-primary {
+    background-color: #4a2c77; /* Cor de fundo dos botões primários */
+}
+
+.unique-btn-primary:hover {
+    background-color: #5b3f9b; /* Cor ao passar o mouse */
+    color: white; /* Mantém a cor do texto branca no hover */
+}
+
+.unique-btn-primary:active {
+    background-color: #3a1b59; /* Cor ao clicar */
+}
+
+.unique-btn-danger {
+    background-color: #250c39; /* Cor de fundo dos botões de perigo */
+}
+
+.unique-btn-danger:hover {
+    background-color: #c0392b; /* Cor ao passar o mouse */
+    color: white; /* Mantém a cor do texto branca no hover */
+}
+
+.unique-btn-danger:active {
+    background-color: #a32e1f; /* Cor ao clicar */
+}

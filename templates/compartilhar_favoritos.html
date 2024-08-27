@@ -1,0 +1,22 @@
+{% extends "template.html" %}
+
+{% block conteudo %}
+
+<h1>Lista de Favoritos de {{ usuario.nome }}</h1>
+<div class="card-container">
+    {% for filme in filmes %}
+    <div class="card">
+        <a href="{{ url_for('filme_detalhes', id=filme.id) }}" class="card-link">
+            <img src="{{ url_for('imagem', nome_arquivo='capa' + str(filme.id) + '.jpg') }}" alt="{{ filme.nome }}" class="card-image">
+            <div class="card-body">
+                <h5 class="card-title">{{ filme.nome }}</h5>
+                <p class="card-category">{{ filme.genero }}</p>
+                <p class="card-console">{{ filme.data_lancamento }}</p>
+
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

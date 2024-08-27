@@ -1,0 +1,195 @@
+html, body {
+
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+.btn-sharefav {
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #4a2c77; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 20px; /* Espaçamento acima do botão */
+}
+
+.btn-sharefav:hover {
+    background-color: #5b3f9b; /* Cor ao passar o mouse */
+    transform: scale(1.05); /* Efeito de aumento ao passar o mouse */
+    color: white;
+}
+
+.btn-sharefav:active {
+    background-color: #3a1b59; /* Cor ao clicar */
+    transform: scale(0.95); /* Efeito de diminuição ao clicar */
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Ajusta o número de colunas baseado no espaço disponível */
+    gap: 10px; /* Espaço entre os cards */
+    padding: 16px; /* Espaço ao redor da grid */
+    justify-content: start; /* Alinha os cards à esquerda */
+    text-decoration: none; /* Remove sublinhado */
+
+}
+
+.card {
+    display: flex;
+    flex-direction: column; /* Organiza o conteúdo verticalmente */
+    width: 250px; /* Largura fixa dos cards */
+    height: 500px; /* Altura fixa dos cards */
+    border: 1px solid #483D8B;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    background-color: #483D8B;
+    position: relative; /* Para posicionar os elementos internos corretamente */
+    text-decoration: none; /* Remove sublinhado */
+
+}
+
+.card-image {
+    width: 100%;
+    height: 250px; /* Altura fixa para a imagem */
+    object-fit: fit; /* Ajusta a imagem para cobrir o espaço sem distorção */
+    text-decoration: none; /* Remove sublinhado */
+}
+
+.card-body {
+    padding: 15px;
+    background-color: #483D8B;
+    flex: 1; /* Faz com que o corpo do card ocupe o espaço restante disponível */
+    text-decoration: none; /* Remove sublinhado */
+}
+
+.card-title {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #fff;
+    text-decoration: none; /* Remove sublinhado */
+}
+
+.card-category,
+.card-console {
+    font-size: 14px;
+    color: #fff;
+    margin-bottom: 5px;
+    text-decoration: none; /* Remove sublinhado */
+}
+
+.card-actions {
+    display: flex;
+    justify-content: center; /* Centraliza os botões horizontalmente */
+    gap: 10px; /* Espaçamento entre os botões */
+    padding: 10px; /* Espaçamento interno dos botões */
+    background-color: #483D8B; /* Fundo consistente para a área dos botões */
+    position: absolute; /* Para garantir que a área dos botões não afete o layout dos cards */
+    bottom: 0; /* Posiciona os botões na parte inferior do card */
+    width: 100%; /* Faz com que a área dos botões ocupe toda a largura do card */
+    text-decoration: none; /* Remove sublinhado */
+}
+
+
+/* Remove o sublinhado dos links dentro de .card-container */
+.card-container a {
+    text-decoration: none; /* Remove o sublinhado */
+    color: inherit; /* Herda a cor do elemento pai */
+}
+
+/* Remove o sublinhado dos links dentro de .card */
+.card a {
+    text-decoration: none; /* Remove o sublinhado */
+    color: inherit; /* Herda a cor do elemento pai */
+}
+
+/* Estilos dos botões de ação */
+.card-actions .btn-edit,
+.card-actions .btn-delete {
+    background-color: #6a0dad; /* Roxo para botões de editar */
+    color: #fff; /* Texto branco */
+    border: none; /* Remove bordas dos botões */
+    padding: 10px 20px; /* Espaçamento interno dos botões */
+    border-radius: 5px; /* Bordas arredondadas dos botões */
+    cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+    font-size: 14px; /* Tamanho da fonte dos botões */
+    text-decoration: none; /* Remove sublinhado */
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.card-actions .btn-delete {
+    background-color: #8a2be2; /* Roxo claro para botões de deletar */
+    text-decoration: none; /* Remove sublinhado */
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Adiciona um efeito de hover nos botões */
+.card-actions .btn-edit:hover,
+.card-actions .btn-delete:hover {
+    background-color: #5a0a8d; /* Roxo mais escuro para hover */
+    text-decoration: none; /* Remove sublinhado */
+}
+
+.btn-salvarimg {
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #6a0dad; /* Cor de fundo roxa */
+    color: white; /* Cor do texto */
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border: none; /* Remove bordas padrão */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-salvarimg:hover {
+    background-color: #5b3f9b; /* Cor ao passar o mouse */
+    transform: scale(1.05); /* Efeito de aumento ao passar o mouse */
+}
+
+.btn-salvarimg:active {
+    background-color: #3a1b59; /* Cor ao clicar */
+    transform: scale(0.95); /* Efeito de diminuição ao clicar */
+}
+
+#messages {
+    margin: 20px 0;
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #5a0a8d; /* Cor padrão para sucesso */
+    font-size: 16px;
+    opacity: 1;
+    transition: opacity 0.5s ease-out, display 0.5s ease-out;
+}
+
+.alert.success {
+    background-color: #d4edda; /* Verde claro */
+}
+
+.alert.error {
+    background-color: #f8d7da; /* Vermelho claro */
+}
+
+.alert.warning {
+    background-color: #fff3cd; /* Amarelo claro */
+}
+
+.alert.info {
+    background-color: #d1ecf1; /* Azul claro */
+}
